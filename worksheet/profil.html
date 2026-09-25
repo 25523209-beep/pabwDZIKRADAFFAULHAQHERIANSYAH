@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rak Buku Saya</title>
+  <link  rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <header>
+    <h1>Rak Buku Saya</h1>
+    <p>Daftar buku yang saya miliki beserta status bacanya.</p>
+    <nav aria-label="Navigasi utama">
+      <ul>
+        <li><a href="#bagian-1">Daftar Buku</a></li>
+        <li><a href="#bagian-2">Tambah Buku</a></li>
+        <li><a href="#tentang">Tentang Saya</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="bagian-1">
+      <h2>Daftar Buku</h2>
+
+      <table>
+        <caption>Koleksi Buku di Rak Saya</caption>
+        <thead>
+          <tr>
+            <th scope="col">Judul</th>
+            <th scope="col">Penulis</th>
+            <th scope="col">Tahun Terbit</th>
+            <th scope="col">Status Baca</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Laskar Pelangi</th>
+            <td>Andrea Hirata</td>
+            <td>2005</td>
+            <td>Sudah dibaca</td>
+          </tr>
+          <tr>
+            <th scope="row">Bumi Manusia</th>
+            <td>Pramoedya Ananta Toer</td>
+            <td>1980</td>
+            <td>Sedang dibaca</td>
+          </tr>
+          <tr>
+            <th scope="row">Filosofi Teras</th>
+            <td>Henry Manampiring</td>
+            <td>2018</td>
+            <td>Belum dibaca</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <figure>
+        <img src="hehe.jpg" alt="Rak kayu berisi tumpukan buku dengan berbagai warna sampul" width="640" height="360" loading="lazy">
+        <figcaption>Rak buku di kamar saya.</figcaption>
+      </figure>
+    </section>
+
+    <section id="bagian-2">
+      <h2>Tambah Buku</h2>
+
+      <form action="/simpan" method="post">
+        <p>
+          <label for="judul-buku">Judul buku</label>
+          <input type="text" id="judul-buku" name="judul-buku" required>
+        </p>
+        <p>
+          <label for="penulis-buku">Penulis</label>
+          <input type="text" id="penulis-buku" name="penulis-buku" required>
+        </p>
+        <p>
+          <label for="status-baca">Status baca</label>
+          <select id="status-baca" name="status-baca" required>
+            <option value="">-- pilih status --</option>
+            <option value="belum">Belum dibaca</option>
+            <option value="sedang">Sedang dibaca</option>
+            <option value="sudah">Sudah dibaca</option>
+          </select>
+        </p>
+        <button type="submit">Simpan</button>
+      </form>
+    </section>
+  </main>
+
+  <footer id="tentang">
+    <p>DZIKRA DAFFA ULHAQ HERIANSYAH · 25523209 · 2026</p>
+  </footer>
+
+</body>
+</html>
