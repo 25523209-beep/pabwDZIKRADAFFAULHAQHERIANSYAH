@@ -3,20 +3,19 @@
     --color-bg: #0F172A;
     --color-fg: #E2E8F0;
     --color-surface: #1E293B;
-    --color-border: #334155;
-    --color-primary: #F0B429; 
+    --color-border: #64748B;
+    --color-primary: #F0B429; /* versi lebih terang agar kontras tetap lolos */
     --color-danger: #FF8A8A;
     --color-focus: #7DD3FC;
     --shadow-1: 0 1px 3px rgba(0, 0, 0, .45);
   }
 }
 
-
 :root:has(#tema:checked) {
   --color-bg: #0F172A;
   --color-fg: #E2E8F0;
   --color-surface: #1E293B;
-  --color-border: #334155;
+  --color-border: #64748B;
   --color-primary: #F0B429;
   --color-danger: #FF8A8A;
   --color-focus: #7DD3FC;
