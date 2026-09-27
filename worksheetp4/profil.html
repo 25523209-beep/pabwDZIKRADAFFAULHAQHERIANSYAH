@@ -4,24 +4,34 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rak Buku Saya</title>
-  <link  rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="layout.css">
+  <link rel="stylesheet" href="komponen.css">
+  <link rel="stylesheet" href="tema.css">
 </head>
 <body>
 
   <header>
-    <h1>Rak Buku Saya</h1>
-    <p>Daftar buku yang saya miliki beserta status bacanya.</p>
-    <nav aria-label="Navigasi utama">
-      <ul>
-        <li><a href="#bagian-1">Daftar Buku</a></li>
-        <li><a href="#bagian-2">Tambah Buku</a></li>
-        <li><a href="#tentang">Tentang Saya</a></li>
-      </ul>
-    </nav>
+    <input type="checkbox" id="tema" class="pengalih-tema">
+    <div class="header-baris">
+      <div>
+        <h1>Rak Buku Saya</h1>
+        <p>Daftar buku yang saya miliki beserta status bacanya.</p>
+      </div>
+      <nav aria-label="Navigasi utama">
+        <ul>
+          <li><a href="#bagian-1">Daftar Buku</a></li>
+          <li><a href="#bagian-2">Tambah Buku</a></li>
+          <li><a href="#tentang">Tentang Saya</a></li>
+          <li><label for="tema" class="tombol-tema">Tema gelap</label></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <section id="bagian-1">
+    <section id="bagian-1" class="kartu">
       <h2>Daftar Buku</h2>
 
       <table>
@@ -62,19 +72,21 @@
       </figure>
     </section>
 
-    <section id="bagian-2">
+    <section id="bagian-2" class="kartu">
       <h2>Tambah Buku</h2>
 
       <form action="/simpan" method="post">
-        <p>
+        <div class="form-kolom">
           <label for="judul-buku">Judul buku</label>
           <input type="text" id="judul-buku" name="judul-buku" required>
-        </p>
-        <p>
+          <span class="pesan-galat">Judul buku wajib diisi.</span>
+        </div>
+        <div class="form-kolom">
           <label for="penulis-buku">Penulis</label>
           <input type="text" id="penulis-buku" name="penulis-buku" required>
-        </p>
-        <p>
+          <span class="pesan-galat">Nama penulis wajib diisi.</span>
+        </div>
+        <div class="form-kolom">
           <label for="status-baca">Status baca</label>
           <select id="status-baca" name="status-baca" required>
             <option value="">-- pilih status --</option>
@@ -82,14 +94,16 @@
             <option value="sedang">Sedang dibaca</option>
             <option value="sudah">Sudah dibaca</option>
           </select>
-        </p>
+          <span class="pesan-galat">Pilih salah satu status baca.</span>
+        </div>
         <button type="submit">Simpan</button>
       </form>
     </section>
   </main>
 
   <footer id="tentang">
-    <p>DZIKRA DAFFA ULHAQ HERIANSYAH · 25523209 · 2026</p>
+    <p>DZIKRA DAFFA ULHAQ HERIANSYAH · 25523209 </p>
+    <p>Worksheet Pertemuan 4 mata kuliah PABW.</p>
   </footer>
 
 </body>

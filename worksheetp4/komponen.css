@@ -1,0 +1,97 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+caption {
+  caption-side: top;
+  font-weight: 600;
+  margin-bottom: var(--space-3);
+  text-align: center;
+}
+th, td {
+  text-align: left;
+  padding: var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+}
+thead th {
+  background: var(--color-bg);
+}
+
+figure {
+  text-align: center;
+  margin-top: var(--space-4);
+}
+figcaption {
+  margin-top: var(--space-2);
+  color: var(--color-fg);
+  font-style: italic;
+  font-size: var(--text-sm);
+}
+
+.form-kolom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+input, select, textarea {
+  font: inherit;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-fg);
+}
+
+button {
+  font: inherit;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  color: var(--color-surface);
+  cursor: pointer;
+}
+button:hover { background: var(--amber-600); }
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+
+input:user-invalid,
+select:user-invalid {
+  border-color: var(--color-danger);
+  border-width: 2px;
+}
+
+.pesan-galat {
+  display: none;
+  color: var(--color-danger);
+  font-size: var(--text-sm);
+}
+.form-kolom:has(input:user-invalid) .pesan-galat,
+.form-kolom:has(select:user-invalid) .pesan-galat {
+  display: block;
+}
+
+.pengalih-tema {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.tombol-tema {
+  cursor: pointer;
+  font-size: var(--text-sm);
+  color: var(--color-fg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: var(--space-1) var(--space-3);
+}
