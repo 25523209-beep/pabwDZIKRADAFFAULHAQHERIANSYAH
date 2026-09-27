@@ -1,20 +1,20 @@
-header {
+eader {
   padding-block: var(--space-4);
   border-bottom: 1px solid var(--color-border);
 }
 
-.header-baris {
+.header-baris { /* <div class="header-baris"> di dalam header */
   display: flex;
-  align-items: center; 
-  justify-content: space-between;
+  align-items: center; /* sumbu silang: rata tengah */
+  justify-content: space-between; /* sumbu utama: judul kiri, menu kanan */
   gap: var(--space-4);
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* turun baris di layar sempit, jangan meluber */
 }
 
 nav ul {
   display: flex;
   gap: var(--space-4);
-  list-style: none; 
+  list-style: none; /* daftar nav tanpa butir */
   padding: 0;
   flex-wrap: wrap;
 }
@@ -28,7 +28,7 @@ nav a:hover { text-decoration: underline; }
 main {
   display: flex;
   flex-direction: column;
-  gap: var(--section-gap); 
+  gap: var(--section-gap); /* jarak antar bagian, tanpa margin */
   padding-block: var(--space-6);
   max-width: 800px;
   margin-inline: auto;
@@ -36,24 +36,25 @@ main {
 
 .katalog {
   display: flex;
-  flex-wrap: wrap; 
+  flex-wrap: wrap; /* kunci responsif: kartu turun sendiri */
   gap: var(--space-4);
 }
 
 .kartu {
-  flex: 1 1 16rem;
+  flex: 1 1 16rem; /* tumbuh, menyusut, lebar dasar 16rem */
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-1);
   padding: var(--card-pad);
+  overflow-x: auto; /* tabel lebar digulir di dalam kartu, bukan mendorong seluruh halaman */
 }
 
 footer {
   margin-top: var(--space-6);
   padding-block: var(--space-4);
   border-top: 1px solid var(--color-border);
-  color: var(--color-fg);
+  color: var(--color-fg); /* hindari abu pucat yang gagal kontras */
   font-size: var(--text-sm);
   text-align: center;
 }
