@@ -53,4 +53,3 @@ console.log(semuaJudul.length === daftarBuku.length);
 
 const urut = [...daftarBuku].sort((a, b) => a.tahun - b.tahun);
 console.table(urut);
-console.table(daftarBuku);
