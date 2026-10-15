@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rak Buku Saya</title>
+  <link rel="stylesheet" href="style/tokens.css">
+  <link rel="stylesheet" href="style/base.css">
+  <link rel="stylesheet" href="style/layout.css">
+  <link rel="stylesheet" href="style/komponen.css">
+  <link rel="stylesheet" href="style/tema.css">
+</head>
+<body>
+
+  <header>
+    <input type="checkbox" id="tema" class="pengalih-tema">
+    <div class="header-baris">
+      <div>
+        <h1>Rak Buku Saya</h1>
+        <p>Daftar buku yang saya miliki beserta status bacanya.</p>
+      </div>
+      <nav aria-label="Navigasi utama">
+        <ul>
+          <li><a href="#bagian-1">Daftar Buku</a></li>
+          <li><a href="#bagian-2">Tambah Buku</a></li>
+          <li><a href="#tentang">Tentang Saya</a></li>
+          <li><label for="tema" class="tombol-tema">Tema gelap</label></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="bagian-1" class="kartu">
+      <h2>Daftar Buku</h2>
+
+      <div id="filter" class="filter-buku" role="group" aria-label="Filter status buku">
+        <button type="button" data-status="semua" class="active" aria-pressed="true">Semua</button>
+        <button type="button" data-status="sudah" aria-pressed="false">Sudah dibaca</button>
+        <button type="button" data-status="belum" aria-pressed="false">Belum dibaca</button>
+      </div>
+      <p id="kosong" role="status" hidden>Tidak ada buku pada kategori ini.</p>
+
+      <table>
+        <caption>Koleksi Buku di Rak Saya</caption>
+        <thead>
+          <tr>
+            <th scope="col">Judul</th>
+            <th scope="col">Penulis</th>
+            <th scope="col">Tahun Terbit</th>
+            <th scope="col">Status Baca</th>
+          </tr>
+        </thead>
+        <tbody id="daftar-buku"></tbody>
+      </table>
+
+      <figure>
+        <img src="style/hehe.jpg" alt="Rak kayu berisi tumpukan buku dengan berbagai warna sampul" width="640" height="360" loading="lazy">
+        <figcaption>Rak buku di kamar saya.</figcaption>
+      </figure>
+    </section>
+
+    <section id="bagian-2" class="kartu">
+      <h2>Tambah Buku</h2>
+
+      <form id="form-buku">
+        <div class="form-kolom">
+          <label for="judul-buku">Judul buku</label>
+          <input type="text" id="judul-buku" name="judul-buku" required>
+          <span class="pesan-galat">Judul buku wajib diisi.</span>
+        </div>
+        <div class="form-kolom">
+          <label for="penulis-buku">Penulis</label>
+          <input type="text" id="penulis-buku" name="penulis-buku" required>
+          <span class="pesan-galat">Nama penulis wajib diisi.</span>
+        </div>
+        <div class="form-kolom">
+          <label for="tahun-buku">Tahun terbit</label>
+          <input type="number" id="tahun-buku" name="tahun-buku" min="0" step="1" required>
+          <span class="pesan-galat">Tahun terbit wajib diisi.</span>
+        </div>
+        <div class="form-kolom">
+          <label for="status-baca">Status baca</label>
+          <select id="status-baca" name="status-baca" required>
+            <option value="">-- pilih status --</option>
+            <option value="belum">Belum dibaca</option>
+            <option value="sedang">Sedang dibaca</option>
+            <option value="sudah">Sudah dibaca</option>
+          </select>
+          <span class="pesan-galat">Pilih salah satu status baca.</span>
+        </div>
+        <button type="submit">Simpan</button>
+      </form>
+    </section>
+  </main>
+
+  <footer id="tentang">
+    <p>DZIKRA DAFFA ULHAQ HERIANSYAH · 25523209 </p>
+    <p>Worksheet Pertemuan 4 mata kuliah PABW.</p>
+  </footer>
+  <script type="module" src="js/app.js"></script>
+  <script type="module" src="js/dom.js"></script>
+</body>
+</html>
