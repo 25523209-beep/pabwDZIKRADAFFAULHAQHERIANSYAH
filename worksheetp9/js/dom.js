@@ -2,10 +2,10 @@ import { daftarBuku } from "./app.js";
 
 const daftar = document.querySelector("#daftar-buku");
 const pesanKosong = document.querySelector("#kosong");
-const tombolFilter = document.querySelectorAll("#filter button");
+const filterRow = document.querySelector("#filter");
 const formBuku = document.querySelector("#form-buku");
 
-if (!daftar || !pesanKosong || tombolFilter.length === 0 || !formBuku) {
+if (!daftar || !pesanKosong || !filterRow || !formBuku) {
     throw new Error("Elemen daftar buku, filter, pesan kosong, atau form tidak ditemukan.");
 }
 
@@ -61,18 +61,29 @@ function tampilkanBuku() {
     render(bukuDitampilkan);
 }
 
-tombolFilter.forEach((tombol) => {
-    tombol.addEventListener("click", () => {
-        statusFilter = tombol.dataset.status;
+filterRow.addEventListener("click", (event) => {
+    if (!(event.target instanceof Element)) {
+        return;
+    }
 
-        tombolFilter.forEach((tombolLain) => {
-            const aktif = tombolLain === tombol;
-            tombolLain.classList.toggle("active", aktif);
-            tombolLain.setAttribute("aria-pressed", String(aktif));
-        });
+    const tombol = event.target.closest("button");
+    if (!tombol || !filterRow.contains(tombol)) {
+        return;
+    }
 
-        tampilkanBuku();
+    const kategori = tombol.dataset.category;
+    if (!kategori) {
+        return;
+    }
+
+    statusFilter = kategori;
+    filterRow.querySelectorAll("button").forEach((tombolLain) => {
+        const aktif = tombolLain === tombol;
+        tombolLain.classList.toggle("active", aktif);
+        tombolLain.setAttribute("aria-pressed", String(aktif));
     });
+
+    tampilkanBuku();
 });
 
 formBuku.addEventListener("submit", (event) => {
