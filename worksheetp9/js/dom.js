@@ -17,30 +17,48 @@ const labelStatus = {
 
 let statusFilter = "semua";
 
-function tampilkanBuku() {
+function buildCard(buku) {
+    const kartu = document.createElement("li");
+    kartu.className = "card";
+
+    const judul = document.createElement("h3");
+    judul.textContent = buku.judul;
+    kartu.append(judul);
+
+    const penulis = document.createElement("p");
+    penulis.textContent = `Penulis: ${buku.penulis}`;
+    kartu.append(penulis);
+
+    const tahun = document.createElement("p");
+    tahun.textContent = `Tahun terbit: ${buku.tahun}`;
+    kartu.append(tahun);
+
+    const status = document.createElement("p");
+    status.textContent = `Status baca: ${labelStatus[buku.statusBaca]}`;
+    kartu.append(status);
+
+    return kartu;
+}
+
+function render(list) {
     daftar.replaceChildren();
 
+    if (list.length === 0) {
+        pesanKosong.hidden = false;
+        return;
+    }
+
+    pesanKosong.hidden = true;
+    list.forEach((buku) => {
+        daftar.append(buildCard(buku));
+    });
+}
+
+function tampilkanBuku() {
     const bukuDitampilkan = daftarBuku.filter((buku) =>
         statusFilter === "semua" || buku.statusBaca === statusFilter
     );
-
-    bukuDitampilkan.forEach((buku) => {
-        const baris = document.createElement("tr");
-        const judul = document.createElement("th");
-        judul.scope = "row";
-        judul.textContent = buku.judul;
-        baris.append(judul);
-
-        [buku.penulis, buku.tahun, labelStatus[buku.statusBaca]].forEach((nilai) => {
-            const sel = document.createElement("td");
-            sel.textContent = String(nilai);
-            baris.append(sel);
-        });
-
-        daftar.append(baris);
-    });
-
-    pesanKosong.hidden = bukuDitampilkan.length > 0;
+    render(bukuDitampilkan);
 }
 
 tombolFilter.forEach((tombol) => {
