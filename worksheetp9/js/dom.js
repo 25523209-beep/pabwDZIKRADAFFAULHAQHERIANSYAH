@@ -89,6 +89,20 @@ filterRow.addEventListener("click", (event) => {
 formBuku.addEventListener("submit", (event) => {
     event.preventDefault();
 
+    const kolomForm = [...formBuku.querySelectorAll(".form-kolom")];
+    const kolomTidakValid = kolomForm.filter((kolom) => {
+        const input = kolom.querySelector("input, select");
+        const valid = input.value.trim() !== "" && input.checkValidity();
+        kolom.classList.toggle("invalid", !valid);
+        input.setAttribute("aria-invalid", String(!valid));
+        return !valid;
+    });
+
+    if (kolomTidakValid.length > 0) {
+        kolomTidakValid[0].querySelector("input, select").focus();
+        return;
+    }
+
     const dataForm = new FormData(formBuku);
     daftarBuku.push({
         judul: dataForm.get("judul-buku").trim(),
@@ -98,6 +112,10 @@ formBuku.addEventListener("submit", (event) => {
     });
 
     formBuku.reset();
+    kolomForm.forEach((kolom) => {
+        kolom.classList.remove("invalid");
+        kolom.querySelector("input, select").removeAttribute("aria-invalid");
+    });
     tampilkanBuku();
 });
 

@@ -77,8 +77,8 @@ button:hover { background: var(--amber-600); }
 }
 
 
-input:user-invalid,
-select:user-invalid {
+.form-kolom.invalid input,
+.form-kolom.invalid select {
   border-color: var(--color-danger);
   border-width: 2px;
 }
@@ -88,8 +88,7 @@ select:user-invalid {
   color: var(--color-danger);
   font-size: var(--text-sm);
 }
-.form-kolom:has(input:user-invalid) .pesan-galat,
-.form-kolom:has(select:user-invalid) .pesan-galat {
+.form-kolom.invalid .pesan-galat {
   display: block;
 }
 
